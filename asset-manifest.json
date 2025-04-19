@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/AI-Article-Summarizer/static/css/main.5f358b11.css",
+    "main.js": "/AI-Article-Summarizer/static/js/main.93d25bc1.js",
+    "static/js/453.b6379c8a.chunk.js": "/AI-Article-Summarizer/static/js/453.b6379c8a.chunk.js",
+    "index.html": "/AI-Article-Summarizer/index.html",
+    "main.5f358b11.css.map": "/AI-Article-Summarizer/static/css/main.5f358b11.css.map",
+    "main.93d25bc1.js.map": "/AI-Article-Summarizer/static/js/main.93d25bc1.js.map",
+    "453.b6379c8a.chunk.js.map": "/AI-Article-Summarizer/static/js/453.b6379c8a.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.5f358b11.css",
+    "static/js/main.93d25bc1.js"
+  ]
+}
