@@ -12,8 +12,7 @@ function App() {
   const [error, setError] = useState("");
   const [history, setHistory] = useState([]);
 
-  const API_KEY =
-    "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";
+  const API_KEY = process.env.REACT_APP_API_KEY;
 
   useEffect(() => {
     const savedHistory = JSON.parse(localStorage.getItem("summaryHistory"));
