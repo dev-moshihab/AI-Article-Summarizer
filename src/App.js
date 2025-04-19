@@ -13,7 +13,7 @@ function App() {
   const [history, setHistory] = useState([]);
 
   const API_KEY =
-    "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";
+    "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";
 
   useEffect(() => {
     const savedHistory = JSON.parse(localStorage.getItem("summaryHistory"));
