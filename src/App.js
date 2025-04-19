@@ -102,7 +102,11 @@ function App() {
       <div className="box">
         {/* زر الوضع الليلي/النهاري */}
         <div className="theme-toggle">
-          <button onClick={toggleTheme} className="button theme" style={{color : "#00bcd4"}}>
+          <button
+            onClick={toggleTheme}
+            className="button theme"
+            style={{ color: "#00bcd4" }}
+          >
             {theme === "dark" ? <FaSun /> : <FaMoon />}
           </button>
         </div>
