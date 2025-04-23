@@ -12,7 +12,6 @@ function App() {
   const [error, setError] = useState("");
   const [history, setHistory] = useState([]);
 
-  const API_KEY = process.env.REACT_APP_API_KEY;
 
   useEffect(() => {
     const savedHistory = JSON.parse(localStorage.getItem("summaryHistory"));
@@ -31,7 +30,7 @@ function App() {
 
     try {
       const response = await axios.post(
-        "https://summarizer-backend-xgj1.onrender.com",
+        "https://summarizer-backend-xgj1.onrender.com/summarize",
         {
           text,
         }
