@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
-import { FaSun, FaMoon, FaRedo, FaCopy } from "react-icons/fa";
+import { FaSun, FaMoon } from "react-icons/fa";
 import "./App.css";
 
 function App() {
@@ -30,38 +30,14 @@ function App() {
     setSummary("");
 
     try {
-      // تحديد اللغة بناءً على وجود أحرف عربية
-      const isArabic = /[\u0600-\u06FF]/.test(text);
-      const prompt = isArabic
-        ? `لخص هذا المقال بالعربية:\n\n${text}`
-        : `Summarize this article in English:\n\n${text}`;
-
       const response = await axios.post(
-        "https://openrouter.ai/api/v1/chat/completions",
+        "https://summarizer-backend-xgj1.onrender.com",
         {
-          model: "gpt-3.5-turbo",
-          messages: [
-            {
-              role: "system",
-              content: "You are a helpful assistant that summarizes text.",
-            },
-            {
-              role: "user",
-              content: prompt,
-            },
-          ],
-        },
-        {
-          headers: {
-            Authorization: `Bearer ${API_KEY}`,
-            "Content-Type": "application/json",
-            "HTTP-Referer": "http://localhost:3000", // غيره عند النشر
-            "X-Title": "Article Summarizer",
-          },
+          text,
         }
       );
 
-      const result = response.data.choices?.[0]?.message?.content;
+      const result = response.data.summary;
 
       if (result) {
         setSummary(result);
@@ -97,6 +73,7 @@ function App() {
     navigator.clipboard.writeText(summary);
     setCopied(true);
   };
+
   return (
     <div className={`container ${theme}`}>
       <div className="box">
@@ -128,6 +105,7 @@ function App() {
           rows="8"
           className="textarea"
         />
+
         {/* زر مسح النص */}
         <div className="button-group">
           <button onClick={handleReset} className="button clear">
