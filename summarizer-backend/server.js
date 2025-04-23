@@ -37,6 +37,7 @@ app.post("/summarize", async (req, res) => {
 
     const summary =
       response.data.choices[0]?.message?.content || "لا يوجد ملخص.";
+
     res.json({ summary });
   } catch (error) {
     console.error("Error:", error.message);
