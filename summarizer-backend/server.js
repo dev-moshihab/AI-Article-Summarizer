@@ -31,7 +31,8 @@ app.post("/summarize", async (req, res) => {
       }
     );
 
-    res.json(response.data);
+    const summary = response.data.choices?.[0]?.message?.content || "";
+    res.json({ summary }); // ✅ فقط الملخص المطلوب
   } catch (error) {
     console.error("Error:", error.message);
     res.status(500).json({ error: "Something went wrong" });
