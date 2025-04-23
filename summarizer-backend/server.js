@@ -9,6 +9,10 @@ app.use(express.json());
 
 const PORT = process.env.PORT || 5000;
 
+app.get("/", (req, res) => {
+  res.send("🚀 Summarizer backend is running!");
+});
+
 app.post("/summarize", async (req, res) => {
   const { text } = req.body;
   try {
@@ -31,8 +35,9 @@ app.post("/summarize", async (req, res) => {
       }
     );
 
-    const summary = response.data.choices?.[0]?.message?.content || "";
-    res.json({ summary }); // ✅ فقط الملخص المطلوب
+    const summary =
+      response.data.choices[0]?.message?.content || "لا يوجد ملخص.";
+    res.json({ summary });
   } catch (error) {
     console.error("Error:", error.message);
     res.status(500).json({ error: "Something went wrong" });
